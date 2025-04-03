@@ -1,0 +1,1 @@
+{"name":"旅行预订应用","short_name":"GoTrip","start_url":"/","display":"standalone","background_color":"#ffffff","lang":"en","scope":"/","description":"您的个人旅行助手，随时随地预订旅行","theme_color":"#3b82f6","icons":[{"src":"logo192.png","sizes":"192x192","type":"image/png"},{"src":"logo512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
