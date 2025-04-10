@@ -6,20 +6,40 @@ import { getBookingPhotoSrc } from "../utils/photoDb";
 
 // 查看照片组件
 const ViewBookingPhoto = ({ id }) => {
+  const [refreshKey, setRefreshKey] = useState(0);
   const photoSrc = getBookingPhotoSrc(id);
+
+  const handleRefresh = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
 
   return (
     <div className="p-4 text-center">
       <h2 className="text-xl font-semibold mb-4">ID Photo</h2>
       {photoSrc ? (
-        <img
-          src={photoSrc}
-          alt="ID Photo"
-          className="max-w-md mx-auto rounded-md"
-        />
+        <>
+          <img
+            key={refreshKey}
+            src={photoSrc}
+            alt="ID Photo"
+            className="max-w-md mx-auto rounded-md mb-3"
+          />
+          <button
+            onClick={handleRefresh}
+            className="px-3 py-1 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 text-sm"
+          >
+            Refresh Photo
+          </button>
+        </>
       ) : (
         <div className="bg-gray-100 p-8 rounded-md">
           <p className="text-gray-500">No photo found</p>
+          <button
+            onClick={handleRefresh}
+            className="px-3 py-1 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 mt-3 text-sm"
+          >
+            Refresh Photo
+          </button>
         </div>
       )}
     </div>
